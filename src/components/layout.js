@@ -28,7 +28,7 @@ const Layout = ({ location, title, children }) => {
         {/* © {new Date().getFullYear()}, Built with
         {` `} */}
         {/* <span>wanghao</span> */}
-        <span>京ICP备18062500号-1</span>
+        <span><a href='https://beian.miit.gov.cn'>京ICP备18062500号-1</a></span>
       </footer>
     </div>
   )
