@@ -3,17 +3,22 @@ title: ajax和fetch的异同和封装实现
 date: 2019-02-10 20:20:59
 tags:
 ---
-# 一、ajax和fetch相同点
-1. 两者都是浏览器实现的用于和服务器进行异步通信的接口.
-2. 两者都可以实现不刷新页面的情况下局部渲染.
 
-# 二、ajax和fetch的区别
-1. ajax是通过浏览器中的XMLHttpRequest(IE5 或者IE6时ActiveXObject('Microsoft.XMLHTTP'))对象实现的。
-2. fetch返回一个promise对象
-3. fetch跨域时不会带cookie，需要手动指定credentials: 'include'
-4. fetch()返回的promise将不会拒绝http的错误状态，即使返回的响应时404或者500
+# 一、ajax 和 fetch 相同点
 
-# 三、ajax的封装实现
+1. 两者都是浏览器实现的用于和服务器进行异步通信的接口
+2. 两者都可以实现不刷新页面的情况下局部渲染
+3. 都可以用来请求后端的接口
+
+# 二、ajax 和 fetch 的区别
+
+1. ajax 是通过浏览器中的 XMLHttpRequest(IE5 或者 IE6 时 ActiveXObject('Microsoft.XMLHTTP'))对象实现的。
+2. fetch 返回一个 promise 对象
+3. fetch 跨域时不会带 cookie，需要手动指定 credentials: 'include'
+4. fetch()返回的 promise 将不会拒绝 http 的错误状态，即使返回的响应时 404 或者 500
+
+# 三、ajax 的封装实现
+
 ```
 const ajax = (obj) => {
     obj = obj || {};
@@ -53,7 +58,8 @@ const ajax = (obj) => {
 export { ajax }
 ```
 
-# 四、结合async的fetch封装实现
+# 四、结合 async 的 fetch 封装实现
+
 ```
 import _ from 'lodash';
 import "isomorphic-fetch";
@@ -115,7 +121,7 @@ class httpFetch {
         }
         return ''
     }
-  
+
     // 封装fetch的request请求
     async _request(url, init, headers = {}, config = {}) {
         try {
