@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 26 Dec 2020 09:47:17 GMT</lastBuildDate><item><title><![CDATA[ajax和fetch的异同和封装实现]]></title><description><![CDATA[一、ajax和fetch相同点 两者都是浏览器实现的用于和服务器进行异步通信的接口. 两者都可以实现不刷新页面的情况下局部渲染. 二、ajax和fetch的区别 ajax是通过浏览器中的XMLHttpRequest(IE5 或者IE6时ActiveXObject…]]></description><link>https://gatsby-starter-blog-demo.netlify.app/ajax和fetch的封装/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.app/ajax和fetch的封装/</guid><pubDate>Sun, 10 Feb 2019 20:20:59 GMT</pubDate><content:encoded>&lt;h1&gt;一、ajax和fetch相同点&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 04 Jun 2021 15:28:01 GMT</lastBuildDate><item><title><![CDATA[ajax和fetch的异同和封装实现]]></title><description><![CDATA[一、ajax 和 fetch 相同点 两者都是浏览器实现的用于和服务器进行异步通信的接口 两者都可以实现不刷新页面的情况下局部渲染 都可以用来请求后端的接口 二、ajax 和 fetch 的区别 ajax 是通过浏览器中的 XMLHttpRequest(IE5 或者 IE…]]></description><link>https://gatsby-starter-blog-demo.netlify.app/ajax和fetch的封装/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.app/ajax和fetch的封装/</guid><pubDate>Sun, 10 Feb 2019 20:20:59 GMT</pubDate><content:encoded>&lt;h1&gt;一、ajax 和 fetch 相同点&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;两者都是浏览器实现的用于和服务器进行异步通信的接口.&lt;/li&gt;
-&lt;li&gt;两者都可以实现不刷新页面的情况下局部渲染.&lt;/li&gt;
+&lt;li&gt;两者都是浏览器实现的用于和服务器进行异步通信的接口&lt;/li&gt;
+&lt;li&gt;两者都可以实现不刷新页面的情况下局部渲染&lt;/li&gt;
+&lt;li&gt;都可以用来请求后端的接口&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1&gt;二、ajax和fetch的区别&lt;/h1&gt;
+&lt;h1&gt;二、ajax 和 fetch 的区别&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;ajax是通过浏览器中的XMLHttpRequest(IE5 或者IE6时ActiveXObject(‘Microsoft.XMLHTTP’))对象实现的。&lt;/li&gt;
-&lt;li&gt;fetch返回一个promise对象&lt;/li&gt;
-&lt;li&gt;fetch跨域时不会带cookie，需要手动指定credentials: ‘include’&lt;/li&gt;
-&lt;li&gt;fetch()返回的promise将不会拒绝http的错误状态，即使返回的响应时404或者500&lt;/li&gt;
+&lt;li&gt;ajax 是通过浏览器中的 XMLHttpRequest(IE5 或者 IE6 时 ActiveXObject(‘Microsoft.XMLHTTP’))对象实现的。&lt;/li&gt;
+&lt;li&gt;fetch 返回一个 promise 对象&lt;/li&gt;
+&lt;li&gt;fetch 跨域时不会带 cookie，需要手动指定 credentials: ‘include’&lt;/li&gt;
+&lt;li&gt;fetch()返回的 promise 将不会拒绝 http 的错误状态，即使返回的响应时 404 或者 500&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1&gt;三、ajax的封装实现&lt;/h1&gt;
+&lt;h1&gt;三、ajax 的封装实现&lt;/h1&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const ajax = (obj) =&amp;gt; {
     obj = obj || {};
     obj.type = obj.type.toUpperCase() || &amp;quot;POST&amp;quot;;
@@ -47,7 +48,7 @@
     }
 }
 export { ajax }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;四、结合async的fetch封装实现&lt;/h1&gt;
+&lt;h1&gt;四、结合 async 的 fetch 封装实现&lt;/h1&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import _ from &amp;#39;lodash&amp;#39;;
 import &amp;quot;isomorphic-fetch&amp;quot;;
 import &amp;quot;es6-promise&amp;quot;;
@@ -108,7 +109,7 @@ class httpFetch {
         }
         return &amp;#39;&amp;#39;
     }
-  
+
     // 封装fetch的request请求
     async _request(url, init, headers = {}, config = {}) {
         try {
